@@ -1,0 +1,21 @@
+name: Deploy to Cloud Server
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository Code
+        uses: actions/checkout@v4
+
+      - name: Test Application
+        run: python app.py
+
+      - name: Deployment Message
+        run: echo "GitHub Actions working successfully"
